@@ -16,7 +16,7 @@ var data;
 
 // DBwrite('PO_2222222','Apple','KMITIL','Science','22/12/2019','PO')
 
-
+test()
 
  async function test() {
     data = await DBread('PO_2222222')
@@ -33,6 +33,6 @@ async function DBread(id) {
   return data ;
 }
 
-test()
+
 
 
