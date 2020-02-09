@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+           <meta charset="UTF-8">
+           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+           <meta http-equiv="X-UA-Compatible" content="ie=edge">
+           <title>vue.js Rush</title>
+           <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        </head>
+        <body>
+
+           
+        
+
+            <div id="app">
+                <h3 >{{ message }}</h3>
+            </div>
+                <!-- แสดงข้อความ hello vue  -->
+
+            <div id="app-2">
+                <span  v-bind:title="message"  >
+                  Hover your mouse over me for a few seconds
+                  to see my dynamically bound title!
+                </span>
+            </div>
+                <!-- เมื่อนำเม้าส๋์มาวาง จะโชว์ข้อความ Reload และเวลาล่าสุด  -->   
+
+            <div id="app-3">
+                <span v-if="seen">Now you see me</span>
+                <span v-else=>Don't see me </span>
+
+            </div>
+                <!-- แสดงข้อความ Now you see me เพราะเนื่องจากการอนุญาติให้แสดง seen:true -->
+
+            <div id="app-4">
+                <ul>
+                  <li v-for="rush in todos">
+                    {{ rush.text }}
+                  </li>
+                </ul>
+            </div>
+
+            <div id="app-5">
+                <p>{{ message }}</p>
+                <button v-on:click="reverseMessage">Reverse Message</button>
+            </div>
+
+
+
+            <div id="app-6">
+                <p>{{ message }}</p>
+                <input v-model="message">
+            </div>
+
+
+            <div id="app-7">
+                <ol>
+                  <!--
+                    Now we provide each todo-item with the todo object
+                    it's representing, so that its content can be dynamic.
+                    We also need to provide each component with a "key",
+                    which will be explained later.
+                  -->
+                  <todo-item
+                    v-for="item in groceryList"
+                    v-bind:todo="item"
+                    v-bind:key="item.id"
+                  ></todo-item>
+                </ol>
+            </div>
+
+            <div id="app-7">
+                <ol>
+                    <todo-item></todo-item>
+                    
+                </ol>
+            </div>
+           
+
+            <script src="app.js"></script>  
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        </body>
+</html>
+
+<style>
+    body {background-color: rgb(247, 239, 239);}
+    h3   {color: tomato;}
+    p    {color: red;}
+</style>

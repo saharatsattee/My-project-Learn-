@@ -1,0 +1,27 @@
+
+        body {
+            /*background-color: rgb(255, 255, 255);*/
+            background-image: url("bb.jpg");
+            background-size: cover; /* ทำให้ภาพมีขนาดเต็มและพอดีกับหน้าจอ */
+            background-attachment: fixed; /* ทำให้ภาพกินเต็มจอและเวลา scoll ภาพยังคงอยู่กับหน้าจอ ไม่เลื่อนหายไป  */
+            height: 100%; 
+        }
+
+        #p01 {
+        color: blue;
+        }
+         /* กำหนดเรียกใช้แบบบ id tag  */
+
+        p.error {
+        color: red;
+        }
+         /* กำหนดเรียกใช้แบบ class และต้องใช้กับคำสั่ง p เท่านั้น ตามการประกาศของ class */
+
+        #head1 {
+        color:MediumSeaGreen ;
+        text-align: center;
+        border: 2px solid DodgerBlue; 
+        /*font-size: 20px;*/
+        }
+        /* กำหนดเรียกใช้แบบบ id tag  */
+
