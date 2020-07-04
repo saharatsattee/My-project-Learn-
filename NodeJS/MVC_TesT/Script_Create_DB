@@ -1,0 +1,3 @@
+db.student.insertMany([{ _id: '59050315@cskmitl.ac.th', password: '181040', Fname :'saharat',Lname : 'sattee' ,status : 'not check'}])
+db.student.insertMany([{ _id: '59050200@cskmitl.ac.th', password: '211240', Fname :'thiti',Lname : 'seeda' ,status : 'not check'}])
+db.student.insertMany([{ _id: '59050269@cskmitl.ac.th', password: '000000', Fname :'pichit',Lname : 'kkkkk' ,status : 'not check'}])

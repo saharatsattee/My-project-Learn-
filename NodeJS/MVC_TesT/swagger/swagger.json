@@ -1,0 +1,146 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "",
+    "version": "2",
+    "title": "View of MVC"
+  },
+  "host": "localhost:3000",
+  "tags": [
+    {
+      "name": "MVC"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api/MVC_login": {
+      "post": {
+        "tags": [
+          "MVC"
+        ],
+        "summary": "Login Student",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "E-mail นักศึกษา",
+            "required": true,
+            "type": "string",
+            "default": "59050200@cskmitl.ac.th"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "รหัสผ่าน",
+            "required": true,
+            "type": "string",
+            "default": "211240"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/transaction200"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/badRequest400"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/transaction500"
+            }
+          }
+        }
+      }
+    },
+    "/api/MVC_Report": {
+      "get": {
+        "tags": [
+          "Student Report"
+        ],
+        "summary": "รายงานจำนวนนักศึกษาที่เช็คชื่อและไม่เข็คชื่อ",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/transaction200"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/badRequest400"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/transaction500"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "badRequest400": {
+      "type": "object",
+      "properties": {
+        "statusCode": {
+          "type": "number",
+          "example": 400
+        },
+        "message": {
+          "type": "string",
+          "example": "<function_name> account_id is required"
+        }
+      }
+    },
+    "transaction200": {
+      "type": "object",
+      "properties": {
+        "statusCode": {
+          "type": "number",
+          "example": 200
+        },
+        "message": {
+          "type": "string",
+          "example": "Transaction has been submitted"
+        }
+      }
+    },
+    "transaction500": {
+      "type": "object",
+      "properties": {
+        "statusCode": {
+          "type": "number",
+          "example": 500
+        },
+        "message": {
+          "type": "string",
+          "example": "Internal Server Error"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,300 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "",
+    "version": "2",
+    "title": "Mock up of ATM System "
+  },
+  "host": "localhost:3000",
+  "tags": [
+    {
+      "name": "ATM"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api/deposit": {
+      "post": {
+        "tags": [
+          "ATM"
+        ],
+        "summary": "ฝากเงิน",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "account",
+            "in": "formData",
+            "description": "ชื่อ/เลขบััญชีผู้ใช้",
+            "required": true,
+            "type": "string",
+            "default": "rush"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "รหัสผ่านบัญชีผู้ใช้",
+            "required": true,
+            "type": "string",
+            "default": "0000"
+          },
+          {
+            "name": "deposit",
+            "in": "formData",
+            "description": "จำนวนเงินที่ต้องการฝาก",
+            "required": true,
+            "type": "integer",
+            "default": 100
+          }     
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/transaction200"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/badRequest400"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/transaction500"
+            }
+          }
+        }
+      }
+    },
+    "/rush": {
+      "post": {
+        "tags": [
+          "rush"
+        ],
+        "summary": "test",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "a",
+            "in": "formData",
+            "description": "a",
+            "required": true,
+            "type": "integer",
+            "default": 5
+          },
+          {
+            "name": "b",
+            "in": "formData",
+            "description": "b",
+            "required": true,
+            "type": "integer",
+            "default": 5
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/transaction200"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/badRequest400"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/transaction500"
+            }
+          }
+        }
+      }
+    },
+    "/api/withdraw": {
+      "post": {
+        "tags": [
+          "ATM"
+        ],
+        "summary": "ถอนเงิน",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "account",
+            "in": "formData",
+            "description": "ชื่อ/เลขบััญชีผู้ใช้",
+            "required": true,
+            "type": "string",
+            "default": "rush"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "รหัสผ่านบัญชีผู้ใช้",
+            "required": true,
+            "type": "string",
+            "default": "0000"
+          },
+          {
+            "name": "withdraw",
+            "in": "formData",
+            "description": "จำนวนเงินที่ต้องการฝาก",
+            "required": true,
+            "type": "integer",
+            "default": 100
+          }     
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/transaction200"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/badRequest400"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/transaction500"
+            }
+          }
+        }
+      }
+    },
+    "/api/transfer": {
+      "post": {
+        "tags": [
+          "ATM"
+        ],
+        "summary": "โอนเงิน",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountA",
+            "in": "formData",
+            "description": "ชื่อ/เลขบััญชีผู้ใช้ต้นทาง",
+            "required": true,
+            "type": "string",
+            "default": "rush"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "รหัสผ่านบัญชีผู้ใช้",
+            "required": true,
+            "type": "string",
+            "default": "0000"
+          },
+          {
+            "name": "transfer",
+            "in": "formData",
+            "description": "จำนวนเงินที่ต้องการโอน",
+            "required": true,
+            "type": "integer",
+            "default": 100
+          },
+          {
+            "name": "accountB",
+            "in": "formData",
+            "description": "ชื่อ/เลขบััญชีผู้ใช้ปลายทาง",
+            "required": true,
+            "type": "string",
+            "default": "aye"
+          }     
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/transaction200"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/badRequest400"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/transaction500"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "badRequest400": {
+      "type": "object",
+      "properties": {
+        "statusCode": {
+          "type": "number",
+          "example": 400
+        },
+        "message": {
+          "type": "string",
+          "example": "<function_name> account_id is required"
+        }
+      }
+    },
+    "transaction200": {
+      "type": "object",
+      "properties": {
+        "statusCode": {
+          "type": "number",
+          "example": 200
+        },
+        "message": {
+          "type": "string",
+          "example": "Transaction has been submitted"
+        }
+      }
+    },
+    "transaction500": {
+      "type": "object",
+      "properties": {
+        "statusCode": {
+          "type": "number",
+          "example": 500
+        },
+        "message": {
+          "type": "string",
+          "example": "Internal Server Error"
+        }
+      }
+    }
+  }
+}
